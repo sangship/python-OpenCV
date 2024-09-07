@@ -18,9 +18,19 @@ img = np.zeros((300, 512, 3), np.uint8)
 cv2.namedWindow('image')
 
 # 트랙바 생성 (초기값 설정: R = 100, G = 150, B = 200)
-cv2.createTrackbar('R', 'image', 100, 255, on_Trackbar_R)
-cv2.createTrackbar('G', 'image', 150, 255, on_Trackbar_G)
-cv2.createTrackbar('B', 'image', 200, 255, on_Trackbar_B)
+cv2.createTrackbar('R', 'image', 0, 255, on_Trackbar_R)
+cv2.createTrackbar('G', 'image', 0, 255, on_Trackbar_G)
+cv2.createTrackbar('B', 'image', 0, 255, on_Trackbar_B)
+
+cv2.setTrackbarMin('R', 'image', 50)
+cv2.setTrackbarMin('G', 'image', 50)
+cv2.setTrackbarMin('B', 'image', 50)
+
+cv2.setTrackbarPos('R', 'image', 10)
+cv2.setTrackbarPos('G', 'image', 10)
+cv2.setTrackbarPos('B', 'image', 10)
+
+
 
 while True:
     # 트랙바에서 현재 값 가져오기
@@ -39,3 +49,4 @@ while True:
         break
 
 cv2.destroyAllWindows()
+
